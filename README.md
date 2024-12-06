@@ -73,7 +73,8 @@ Variables are used to store data in JavaScript. There are three types:
 ###### let result = "abc" / 2; // NaN
 
 ## Type Conversion
-###### Implicit Conversion
+
+## Implicit Conversion
 ###### JavaScript automatically converts types.
 ###### let sum = "5" + 5; // "55" (string)
 
