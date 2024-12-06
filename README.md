@@ -105,3 +105,4 @@ Variables are used to store data in JavaScript. There are three types:
 ###### console.log("Smaller than 5");
 ###### console.log("Less than or equal to 5");
 ###### }
+![](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUqWsYIhbDZ0sceZ8ft3WUJg9H38TQs-4LTw&s)
