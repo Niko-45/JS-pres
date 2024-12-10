@@ -78,3 +78,4 @@
          let myVar = "Initialized"; // TDZ ends here
          console.log(myVar); // "Initialized"
      }
+     ![](https://ahmed-7amada.com/_next/image?url=%2Fimages%2Fblog%2Fposts%2FHoisting%2Fcover.webp&w=1600&q=75)
