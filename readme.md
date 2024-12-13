@@ -1,81 +1,50 @@
-# Scope, Hoisting, and Temporal Dead Zone (TDZ)
+# **Closure ва Recursion дар JavaScript**
 
-1. Scope
-   - Scope determines the accessibility of variables in different parts of the code.
-   - Types of Scope:
-     - Global Scope: Variables declared outside any function or block are accessible everywhere.
-      
-       let globalVar = "I'm global";
-       console.log(globalVar); // "I'm global"
-       
-     - Function Scope: Variables declared inside a function are only accessible within that function.
-      
-       function example() {
-           let localVar = "I'm local";
-           console.log(localVar); // "I'm local"
-       }
-       console.log(localVar); // ReferenceError
-       
-     - Block Scope: Variables declared with let or const are only accessible within the block they are defined in.
-      
-       {
-           let blockVar = "I'm block-scoped";
-           console.log(blockVar); // "I'm block-scoped"
-       }
-       console.log(blockVar); // ReferenceError
-       
-2. Hoisting
-   - Hoisting is JavaScript's behavior of moving declarations to the top of their scope during the compile phase.
-   - How Hoisting Works:
-     - Variable Hoisting:
-       - var is hoisted and initialized to undefined.
-       - let and const are hoisted but remain in the TDZ until initialized.
-      
-       console.log(x); // undefined
-       var x = 10;
+**1. Closure**  
+Closure — ин механизме дар JavaScript мебошад, ки ба функсияҳо имкон медиҳад дастрасӣ ба тағйирёбандаҳое, ки дар муҳити (scope) берунии онҳо муайян шудаанд, нигоҳ дорад, ҳатто пас аз анҷоми иҷрои функсияи беруна.  
+**Чӣ тавр Closure кор мекунад?**  
+- Агар функсия дар дохили функсияи дигар эълон шавад, функсияи дохилӣ ба тағйирёбандаҳои функсияи беруна дастрасӣ дорад.  
+- Пас аз анҷом ёфтани функсияи беруна, функсияи дохилӣ ҳанӯз ҳам метавонад ин тағйирёбандаҳоро истифода барад.  
+- Closure ҳангоми кор бо функсияҳои худҷорисозӣ (self-invoking), таймерҳо (timers), ва функсияҳои калбакӣ (callback) бисёр муфид аст.  
 
-       console.log(y); // ReferenceError
-       let y = 20;
-       
-     - Function Hoisting:
-       - Function declarations are hoisted with their definitions.
-       - Function expressions are hoisted as variables and behave like var.
-      
-       console.log(func()); // "Hello"
-       function func() {
-           return "Hello";
-       }
+**Мисол (Closure дар JavaScript):**  
+```javascript
+function berunaFunc(x) {
+  return function dohiliFunc(y) {
+    return x + y; // x аз муҳити беруна дастрас мешавад
+  };
+}
 
-       console.log(funcExp()); // TypeError
-       var funcExp = function() {
-           return "Hi";
-       };
-       
-3. Temporal Dead Zone (TDZ)
-   - TDZ refers to the period between the declaration of a let or const variable and its initialization, during which the variable cannot be accessed.
-   - Characteristics:
-     - Applies to let and const.
-     - Accessing variables in TDZ throws a ReferenceError.
-   - Examples:
-    
-     console.log(a); // ReferenceError
-     let a = 10;
+const closureExample = berunaFunc(5);
+const natija = closureExample(3); // natija = 5 + 3 = 8
+console.log(natija); // 8
+# **Closure ва Recursion дар JavaScript**
 
-     const b = 20; // Valid
-     console.log(b); // 20
+## **1. Closure**
 
-     function test() {
-         console.log(c); // ReferenceError
-         let c = 30;
-     }
-     test();
-     
-   - Variables declared with let and const are hoisted but remain uninitialized in the TDZ until the execution reaches their initialization.
-    
-     {
-         // TDZ starts here
-         console.log(myVar); // ReferenceError
-         let myVar = "Initialized"; // TDZ ends here
-         console.log(myVar); // "Initialized"
-     }
-     ![](https://ahmed-7amada.com/_next/image?url=%2Fimages%2Fblog%2Fposts%2FHoisting%2Fcover.webp&w=1600&q=75)
+**Closure чист?**  
+Closure — ин механизме дар JavaScript мебошад, ки ба функсияҳо имкон медиҳад дастрасӣ ба тағйирёбандаҳое, ки дар муҳити (scope) берунии онҳо муайян шудаанд, нигоҳ дорад, ҳатто пас аз анҷоми иҷрои функсияи беруна. Closure ба функсияҳо имкон медиҳад, ки "хотира" дошта бошанд ва тағйирёбандаҳои муҳити беруниро нигоҳ доранд.  
+
+**Чӣ тавр Closure кор мекунад?**  
+- Агар функсия дар дохили функсияи дигар эълон шавад, функсияи дохилӣ ба тағйирёбандаҳои функсияи беруна дастрасӣ дорад.  
+- Пас аз анҷом ёфтани функсияи беруна, функсияи дохилӣ ҳанӯз ҳам метавонад ин тағйирёбандаҳоро истифода барад.  
+- Closure барои сохтани функсияҳои калбакӣ (callback), таймерҳо (timers) ва модулҳо (modules) муфид аст.  
+
+**Мисол (Closure дар JavaScript):**  
+```javascript
+function counter() {
+  let count = 0; // Ин тағйирёбанда дар муҳити берунии функсия нигоҳ дошта мешавад
+  return function() {
+    count++;
+    return count;
+  };
+}
+
+const counter1 = counter(); 
+console.log(counter1()); // 1
+console.log(counter1()); // 2
+console.log(counter1()); // 3
+
+const counter2 = counter(); 
+console.log(counter2()); // 1 (барои counter2 тағйирёбандаи count аз нав эҷод мешавад)
+
