@@ -2,10 +2,10 @@ JavaScript String Methods
 
 This document provides detailed information about commonly used JavaScript string methods. These methods enable you to manipulate and work with string values in various ways.
 
-###1. split()
+### 1. split()
 
 Usage:
-```
+``` JavaScript
 const d = "Hello World";
 console.log(d.split(" ")); // Output: ["Hello", "World"]
 ```
@@ -17,10 +17,10 @@ The delimiter can be a string or a regular expression.
 
 If the delimiter is an empty string (""), it splits the string into individual characters.
 
-###2. toUpperCase()
+### 2. toUpperCase()
 
 Usage:
-```
+``` JavaScript
 const d = "hello world";
 console.log(d.toUpperCase()); // Output: "HELLO WORLD"
 ```
@@ -30,10 +30,10 @@ Converts all characters of a string to uppercase.
 
 Does not modify the original string but returns a new one.
 
-###3. toLowerCase()
+### 3. toLowerCase()
 
 Usage:
-```
+``` JavaScript
 const d = "HELLO WORLD";
 console.log(d.toLowerCase()); // Output: "hello world"
 ```
@@ -43,10 +43,10 @@ Converts all characters of a string to lowercase.
 
 Returns a new string with lowercase characters.
 
-###4. slice()
+### 4. slice()
 
 Usage:
-```
+``` JavaScript
 const d = "Hello World";
 console.log(d.slice(0, -1)); // Output: "Hello Worl"
 ```
@@ -58,10 +58,10 @@ Takes two arguments: start and end (optional).
 
 If end is negative, it is counted from the end of the string.
 
-###5. substring()
+### 5. substring()
 
 Usage:
-```
+``` JavaScript
 const d = "Hello World";
 console.log(d.substring(0, 6)); // Output: "Hello "
 ```
@@ -74,10 +74,10 @@ It does not support negative indices.
 
 If start is greater than end, they are swapped.
 
-###6. replace()
+### 6. replace()
 
 Usage:
-```
+``` JavaScript
 const d = "Hello Alisher";
 console.log(d.replace("Alisher", "Abubakr")); // Output: "Hello Abubakr"
 ```
@@ -87,10 +87,10 @@ Replaces the first occurrence of a specified value (string or regex) with anothe
 
 Does not modify the original string.
 
-###7. indexOf()
+### 7. indexOf()
 
 Usage:
-```
+``` JavaScript
 const b = "Hello World";
 console.log(b.indexOf("l")); // Output: 2
 ```
@@ -100,10 +100,10 @@ Returns the index of the first occurrence of the specified character or substrin
 
 If the character is not found, it returns -1.
 
-###8. includes()
+### 8. includes()
 
 Usage:
-```
+``` JavaScript
 const d = "Hello Ali";
 console.log(d.includes("Ali")); // Output: true
 ```
@@ -113,10 +113,10 @@ Checks if a string contains a specified value.
 
 Returns true if the value is found; otherwise, false.
 
-###9. trim()
+### 9. trim()
 
 Usage:
-```
+``` JavaScript
 const c = "   Hello World   ";
 console.log(c.trim()); // Output: "Hello World"
 ```
@@ -126,10 +126,10 @@ Removes whitespace from both sides of a string.
 
 Useful for cleaning up input from users.
 
-###10. concat()
+### 10. concat()
 
 Usage:
-```
+``` JavaScript
 const b = "Hello";
 const c = "World";
 console.log(b.concat(" ", c)); // Output: "Hello World"
@@ -140,10 +140,10 @@ Combines two or more strings and returns a new string.
 
 Does not modify the original strings.
 
-###11. toString()
+### 11. toString()
 
 Usage:
-```
+``` JavaScript
 const a = 123;
 console.log(typeof a.toString()); // Output: "string"
 ```
@@ -153,10 +153,10 @@ Converts a number, array, or other data types to a string.
 
 Often used to convert numbers or objects to strings.
 
-###12. charAt()
+### 12. charAt()
 
 Usage:
-```
+``` JavaScript
 const b = "Hello";
 console.log(b.charAt(4)); // Output: "o"
 ```
@@ -166,10 +166,10 @@ Returns the character at the specified index in the string.
 
 If the index is out of range, it returns an empty string.
 
-###13. at()
+### 13. at()
 
 Usage:
-```
+``` JavaScript
 const b = "Hello";
 console.log(b.at(-1)); // Output: "o"
 ```
@@ -179,7 +179,7 @@ Returns the character at the specified index, similar to charAt().
 
 Supports negative indices, which count from the end of the string.
 
-####Conclusion
+#### Conclusion
 
 These methods allow for versatile string manipulation in JavaScript. They are essential for working with and transforming strings. Understanding when and how to use these methods will make your code cleaner, more efficient, and more readable.
 
