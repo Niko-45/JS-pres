@@ -76,17 +76,6 @@ Object Methods
 Methods are functions stored as object properties:
 ```
 ```javascript
-const calculator = {
-  add: function (a, b) {
-    return a + b;
-  },
-};
-console.log(calculator.add(2, 3)); // 5
-Iterating Over Objects
-1. Using for...in
-Loops through an object's enumerable properties:
-```
-```javascript
 for (let key in person) {
   console.log(`${key}: ${person[key]}`);
 }
